@@ -1,107 +1,107 @@
 # Expo Stack Template
 
-这是一个开箱即用的 Expo 项目模版，集成了现代化的移动端开发技术栈。
+An out-of-the-box Expo project template integrated with a modern mobile development tech stack.
 
-**核心特性：**
-*   **Expo Router**: 基于文件的路由系统。
-*   **NativeWind (TailwindCSS)**: 样式解决方案。
-*   **Zustand**: 轻量级全局状态管理。
-*   **Supabase**: 后端即服务 (BaaS) 集成。
-*   **React Query**: 服务端状态管理与缓存。
-*   **TypeScript**: 全类型安全。
+**Core Features:**
+*   **Expo Router**: File-based routing system.
+*   **NativeWind (TailwindCSS)**: Utility-first styling solution.
+*   **Zustand**: Lightweight global state management.
+*   **Supabase**: Backend-as-a-Service (BaaS) integration.
+*   **React Query**: Server state management and caching.
+*   **TypeScript**: Full type safety.
 
 ---
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 1. 使用模版
+### 1. Use the Template
 
-点击 GitHub 仓库右上角的 "Use this template" 按钮创建你自己的仓库，或直接 Clone：
+Click the "Use this template" button at the top right of the GitHub repository to create your own repository, or clone it directly:
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
 cd YOUR_REPO
 ```
 
-### 2. 初始化与重命名
+### 2. Initialize and Rename
 
-我们提供了一个向导脚本来帮助你快速修改项目名称、包名等配置。
+We provide a wizard script to help you quickly modify the project name, package name, and other configurations.
 
 ```bash
-# 1. 安装依赖
+# 1. Install dependencies
 npm install
 
-# 2. 运行重命名脚本
+# 2. Run the rename script
 npm run rename
 ```
-> 跟随提示输入你的新项目名称 (Project Name)、Scheme 和 Bundle ID。
+> Follow the prompts to enter your new Project Name, Scheme, and Bundle ID.
 
-### 3. 配置环境变量
+### 3. Configure Environment Variables
 
-复制 `.env.example` 为 `.env` 并填入你的配置：
+Copy `.env.example` to `.env` and fill in your configuration:
 
 ```bash
 cp .env.example .env
 ```
 
-### 4. 启动项目
+### 4. Start the Project
 
 ```bash
-# 重置缓存并重新生成 iOS/Android 目录
+# Reset cache and regenerate iOS/Android directories
 npm run reset
 
-# 启动开发服务器
+# Start the development server
 npm run start
 ```
 
 ---
 
-## 📂 项目结构
+## 📂 Project Structure
 
 ```text
 src/
-├── app/                 # [路由层] Expo Router 的页面文件
-│   ├── (auth)/          # 分组：登录注册 (不需要底部导航)
-│   ├── (tabs)/          # 分组：主页 Tab 栏
-│   └── _layout.tsx      # 全局入口 (Provider 都在这注入)
+├── app/                 # [Routing Layer] Expo Router page files
+│   ├── (auth)/          # Group: Login/Register (No bottom tab)
+│   ├── (tabs)/          # Group: Main Tab bar
+│   └── _layout.tsx      # Global entry (Providers injected here)
 │
-├── components/          # [UI 组件层]
-│   ├── ui/              # 傻瓜组件 (Button, Input, Avatar) - 纯展示，无业务逻辑
-│   └── business/        # 业务组件 (ChatList, LoginForm) - 稍微复杂点
+├── components/          # [UI Component Layer]
+│   ├── ui/              # Dumb components (Button, Input, Avatar) - Pure display, no business logic
+│   └── business/        # Business components (ChatList, LoginForm) - Complexity involving business logic
 │
-├── hooks/               # [逻辑层 - Repository]
-│   ├── queries/         # useQuery 封装 (useUser, useMessages)
-│   ├── mutations/       # useMutation 封装 (useLogin, useSendMessage)
-│   └── useDebounce.ts   # 通用 Hooks
+├── hooks/               # [Logic Layer - Repository]
+│   ├── queries/         # useQuery wrappers (useUser, useMessages)
+│   ├── mutations/       # useMutation wrappers (useLogin, useSendMessage)
+│   └── useDebounce.ts   # General Hooks
 │
-├── services/            # [API 层 - Service] (你叫 api 也行，但 services 更广义)
-│   ├── api.ts           # 封装 axios 或 fetch
-│   ├── authService.ts   # 具体业务 API 函数
-│   └── supabase.ts      # Supabase 客户端实例
+├── services/            # [API Layer - Service]
+│   ├── api.ts           # Axios or fetch wrapper
+│   ├── authService.ts   # Specific business API functions
+│   └── supabase.ts      # Supabase client instance
 │
-├── stores/              # [全局状态层 - Zustand]
-│   ├── useAuthStore.ts  # 存 Token, 用户基本信息
-│   └── useAppStore.ts   # 存主题、设置
+├── stores/              # [Global State Layer - Zustand]
+│   ├── useAuthStore.ts  # Stores Token, User basic info
+│   └── useAppStore.ts   # Stores Theme, Settings
 │
-├── tests/               # [测试层]
-│   ├── components/      # UI 组件测试
-│   ├── services/        # API 服务测试
-│   └── utils/           # 工具函数测试
+├── tests/               # [Test Layer]
+│   ├── components/      # UI component tests
+│   ├── services/        # API service tests
+│   └── utils/           # Utility function tests
 │
-├── utils/               # [工具层] 纯函数
-│   ├── date.ts          # 时间格式化
-│   └── validations.ts   # 如果不用 Zod，正则写这 (但你用了 Zod)
+├── utils/               # [Utility Layer] Pure functions
+│   ├── date.ts          # Date formatting
+│   └── validations.ts   # Regex (if not using Zod)
 │
-├── constants/           # [常量层] 
-│   ├── Colors.ts        # 主题色
-│   ├── Config.ts        # 只有 key、URL 配置
-│   └── Styles.ts        # 全局通用样式
+├── constants/           # [Constant Layer] 
+│   ├── Colors.ts        # Theme colors
+│   ├── Config.ts        # Keys, URLs only
+│   └── Styles.ts        # Global common styles
 │
-├── types/               # [类型定义层] 
-│   ├── user.d.ts        # 定义 User 接口
-│   └── api.d.ts         # 定义 API 返回结构
+├── types/               # [Type Definition Layer] 
+│   ├── user.d.ts        # User interface definition
+│   └── api.d.ts         # API response structure definition
 │
-└── assets/              # [资源层]
+└── assets/              # [Resource Layer]
     ├── images/
     └── fonts/
 ```
