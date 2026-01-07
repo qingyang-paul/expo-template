@@ -19,8 +19,8 @@ An out-of-the-box Expo project template integrated with a modern mobile developm
 Click the "Use this template" button at the top right of the GitHub repository to create your own repository, or clone it directly:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-cd YOUR_REPO
+git clone https://github.com/qingyang-paul/expo-template.git
+cd expo-template
 ```
 
 ### 2. Initialize and Rename
