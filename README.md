@@ -58,6 +58,7 @@ npm run start
 
 ## 📂 项目结构
 
+```text
 src/
 ├── app/                 # [路由层] Expo Router 的页面文件
 │   ├── (auth)/          # 分组：登录注册 (不需要底部导航)
@@ -103,3 +104,4 @@ src/
 └── assets/              # [资源层]
     ├── images/
     └── fonts/
+```
